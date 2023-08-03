@@ -5,13 +5,10 @@
 void main() {
   final String input = 'Hello World';
   final Stack<String> stack = Stack.of(input.split(''));
-  while(stack.isNotEmpty) {
-    print(stack.peek);
-    stack.pop();
-  }
+  print(stack.peek);
 }
 
-/// Stack implementation
+/// Stack implementation LIFO (Last input - first output)
 class Stack<E> {
   Stack() : _storage = <E>[];
   final List<E> _storage;
