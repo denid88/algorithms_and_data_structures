@@ -1,15 +1,30 @@
 void main() {
   final s = Solution();
-  //final haystack = "sadbutsad", needle = "sad";
-  //final haystack = "leetcode", needle = "leeto";
-  //final haystack = 'hello', needle = 'll';
-  //final haystack = 'aaaaa', needle = 'bba';
-  //final haystack = 'a', needle = 'a';
-  //final haystack = 'mississippi', needle = 'issip';
-  //final haystack = 'mississippi', needle = 'pi';
-  //final haystack = 'mississippi', needle = 'sipp';
-  final haystack = 'mississippi', needle = 'issipi';
-  print('__result__: ${s.strStr(haystack, needle)}');
+  final List<Input> testList = [
+    Input('sadbutsad', 'sad'),
+    Input('leetcode', 'leeto'),
+    Input('hello', 'll'),
+    Input('aaaaa', 'bba'),
+    Input('a', 'a'),
+    Input('mississippi', 'issip'),
+    Input('mississippi', 'pi'),
+    Input('mississippi', 'sipp'),
+    Input('mississippi', 'issipi')
+  ];
+
+  /// Output:
+  print('Output: ');
+  print('---------------------------------------------------------------------');
+  testList.forEach((e) {
+    print('result: ${s.strStr(e.haystack, e.needle)}');
+  });
+}
+
+class Input {
+  final String haystack;
+  final String needle;
+
+  const Input(this.haystack, this.needle);
 }
 
 class Solution {
@@ -20,15 +35,10 @@ class Solution {
     while (left < haystack.length) {
       if (right < needle.length && haystack[left] == needle[right]) {
         right++;
-      } else if (right < needle.length && haystack[left] != needle[right]) {
+      } else {
         var temp = right;
         right = 0;
-
-        print('__iteration');
-        print(left);
-        print(temp);
         left = left - temp;
-        print('newLeft $left');
       }
 
       left++;
@@ -36,8 +46,6 @@ class Solution {
       if (right == needle.length) {
         return left - needle.length;
       }
-
-
     }
 
     return -1;
