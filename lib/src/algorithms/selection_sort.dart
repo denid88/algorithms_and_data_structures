@@ -9,17 +9,18 @@ void selectionSort(List<int> input) {
   int minIndex = 0;
   int temp = 0;
 
-  for (int i = 0; i < input.length; i++) {
-    minIndex = i;
+  for (var j = 0; j < input.length; j++) {
 
-    for (int j = i + 1; j < input.length; j++) {
-      if (input[j] < input[minIndex]) {
-        minIndex = j;
+    minIndex = j;
+
+    for (var i = j + 1; i < input.length; i++) {
+      if (input[minIndex] > input[i]) {
+        minIndex = i;
       }
     }
 
-    temp = input[i];
-    input[i] = input[minIndex];
+    temp = input[j];
+    input[j] = input[minIndex];
     input[minIndex] = temp;
   }
 }

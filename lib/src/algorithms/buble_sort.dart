@@ -6,12 +6,12 @@ void main() {
 }
 
 void bubbleSort(List<int> input) {
-  for (int i = 0; i < input.length; i++) {
-    for (int j = 0; j < input.length - i - 1; j++) {
-      if (input[j] > input[j + 1]) {
-        int temp = input[j];
-        input[j] = input[j + 1];
-        input[j + 1] = temp;
+  for (int j = 0; j < input.length; j++) {
+    for (int i = 1; i < input.length - j; i++) {
+      if (input[i] < input[i - 1]) {
+        int temp = input[i];
+        input[i] = input[i - 1];
+        input[i - 1] = temp;
       }
     }
   }
