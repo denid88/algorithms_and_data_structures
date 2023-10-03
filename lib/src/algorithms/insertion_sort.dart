@@ -1,4 +1,5 @@
 /// InsertionSort algorithm implementation. Time Complexity: O(n^2), Space Complexity: O(1)
+/// Recommended for small or almost sorted lists
 void main() {
   final List<int> list = [5, 3, 6, 2, 10];
   insertionSort(list);
