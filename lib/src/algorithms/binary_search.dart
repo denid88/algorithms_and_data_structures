@@ -1,3 +1,4 @@
+/// Time Complexity: O(log n), Space Complexity: O(1)
 void main() {
   final List<int> input = [-1, 2, 3, 4, 10, 33, 65, 100];
   final int target = 65;
