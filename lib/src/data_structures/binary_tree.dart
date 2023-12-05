@@ -12,11 +12,11 @@ BinaryNode<int> createBinaryTree() {
   final eight = BinaryNode(8);
   final nine = BinaryNode(9);
 
-  seven.leftChild = one;
-  one.leftChild = zero;
-  one.rightChild = five;
-  seven.rightChild = nine;
-  nine.leftChild = eight;
+  seven.left = one;
+  one.left = zero;
+  one.right = five;
+  seven.right = nine;
+  nine.left = eight;
 
   return seven;
 }
@@ -24,8 +24,8 @@ BinaryNode<int> createBinaryTree() {
 class BinaryNode<T> {
   BinaryNode(this.value);
   T value;
-  BinaryNode<T>? leftChild;
-  BinaryNode<T>? rightChild;
+  BinaryNode<T>? left;
+  BinaryNode<T>? right;
 
   String _diagram(
       BinaryNode<T>? node, [
@@ -36,18 +36,18 @@ class BinaryNode<T> {
     if (node == null) {
       return '$root null\n';
     }
-    if (node.leftChild == null && node.rightChild == null) {
+    if (node.left == null && node.right == null) {
       return '$root ${node.value}\n';
     }
     final a = _diagram(
-      node.rightChild,
+      node.right,
       '$top ',
       '$top┌──',
       '$top│ ',
     );
     final b = '$root${node.value}\n';
     final c = _diagram(
-      node.leftChild,
+      node.left,
       '$bottom│ ',
       '$bottom└──',
       '$bottom ',
