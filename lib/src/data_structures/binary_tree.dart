@@ -1,8 +1,7 @@
-void main() {
-  final binaryTree = createBinaryTree();
-  print(binaryTree);
-
-}
+// void main() {
+//   final binaryTree = createBinaryTree();
+//   print(binaryTree);
+// }
 
 BinaryNode<int> createBinaryTree() {
   final zero = BinaryNode(0);
@@ -28,11 +27,11 @@ class BinaryNode<T> {
   BinaryNode<T>? right;
 
   String _diagram(
-      BinaryNode<T>? node, [
-        String top = '',
-        String root = '',
-        String bottom = '',
-      ]) {
+    BinaryNode<T>? node, [
+    String top = '',
+    String root = '',
+    String bottom = '',
+  ]) {
     if (node == null) {
       return '$root null\n';
     }
@@ -57,4 +56,54 @@ class BinaryNode<T> {
 
   @override
   String toString() => _diagram(this);
+}
+
+void main() {
+  final BinarySearchTree bst = BinarySearchTree();
+  bst.insert(5);
+  bst.insert(2);
+  bst.insert(12);
+}
+
+/// Binary search tree
+class Node {
+  int data;
+  Node? left;
+  Node? right;
+
+  Node(this.data);
+
+  @override
+  String toString() {
+    return '$data';
+  }
+}
+
+class BinarySearchTree {
+  Node? root;
+
+  void insert(int data) {
+    Node node = Node(data);
+
+    if (root == null) {
+      root = node;
+    } else {
+      Node currentValue = root!;
+      while(true) {
+        if (data < currentValue.data) {
+          if (currentValue.left == null) {
+            currentValue.left = node;
+            break;
+          }
+          currentValue = currentValue.left!;
+        } else {
+          if (currentValue.right == null) {
+            currentValue.right = node;
+            break;
+          }
+          currentValue = currentValue.right!;
+        }
+      }
+    }
+  }
 }
